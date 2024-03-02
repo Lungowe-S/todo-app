@@ -3,7 +3,7 @@
  */
 :root {
   --primary-bright-blue: hsl(220, 98%, 61%);
-  --check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+  --check-background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
   --lt-very-light-gray: hsl(0, 0%, 98%);
   --lt-very-light-grayish-blue: hsl(236, 33%, 92%);
   --lt-light-grayish-blue: hsl(233, 11%, 84%);
@@ -92,7 +92,8 @@ body {
     margin-left: 0.75rem;
 }
 
-.new-task__label {
+.new-task__label,
+.task-label {
     width: 1.25rem;
     height: 1.25rem;
     fill: var(--lt-very-light-grayish-blue);
@@ -103,6 +104,7 @@ body {
     justify-content: start;
     align-content: center;
     padding: 0.875rem 0 0.875rem 1.25rem;
+    margin-top: 2.5rem;
 }
 
 .new-task__input-group input::placeholder {
@@ -121,4 +123,51 @@ body {
     border-color: var(--white);
     outline: none;
 }
+
+/**
+ * Todolist Tasks
+ */
+
+.todolist__tasks {
+    padding-left: 0;
+    background-color: var(--white);
+    border-radius: 5px;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem 1rem 1.25rem
+}
+
+.task__name {
+    flex-grow: 1;
+}
+
+.task input[type="checkbox"] + label {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 100%;
+    color: transparent;
+    border: 1px solid var(--lt-very-light-grayish-blue);
+}
+
+.task input[type="checkbox"]:checked+label {
+    background: var(--check-background);
+    border: 1px solid var(--check-background);
+}
+
+input[type="checkbox"]:checked ~ .task__name {
+    text-decoration: line-through;
+}
+
+.task input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+}
+
+
 
