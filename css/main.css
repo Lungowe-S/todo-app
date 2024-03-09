@@ -27,7 +27,7 @@
  * Global Variables
  */
 body {
-    background-color: var(--lt-light-grayish-blue);
+    background-color: var(--lt-very-light-gray);
     color: var(--lt-very-dark-grayish-blue);
     font-family: var(--font-family);
     font-size: var(--font-size);
@@ -137,11 +137,17 @@ body {
 .task {
     display: flex;
     align-items: center;
-    padding: 1rem 1.25rem 1rem 1.25rem
+    padding: 1rem 1.25rem 1rem 1.25rem;
+    border-bottom: 1px solid var(--lt-light-grayish-blue);
+}
+
+.task:last-child {
+    border-bottom: none;
 }
 
 .task__name {
     flex-grow: 1;
+    margin-left: 0.75rem;
 }
 
 .task input[type="checkbox"] + label {
@@ -167,7 +173,23 @@ input[type="checkbox"]:checked ~ .task__name {
 .task input[type="checkbox"] {
     position: absolute;
     opacity: 0;
+    cursor: pointer;
 }
 
+.task__delete-button {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    line-height: 1;
+    opacity: 0;
+    width: 0.736875rem;
+    height: 0.736875rem;
+}
+
+.task:hover .task__delete-button,
+.task__delete-button:focus,
+.task__delete-button:active {
+    opacity: 1;
+}
 
 
