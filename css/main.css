@@ -35,12 +35,14 @@ body {
 } 
 
 .main,
-.header__wrapper {
+.header__wrapper,
+.attribution {
     margin-left: clamp(1.5rem, -9.294rem + 46.05vw, 28.125rem);
     margin-right: clamp(1.5rem, -9.294rem + 46.05vw, 28.125rem);
 }
 
-.todolist {
+.todolist,
+.attribution {
     width: clamp(20.438rem, 15.041rem + 23.03vw, 33.75rem);
 }
 
@@ -267,9 +269,6 @@ input[type="checkbox"]:checked ~ .task__name {
 
 .attribution {
     margin-top: 4.5rem;
-    width: clamp(20.438rem, 15.041rem + 23.03vw, 33.75rem);
-    margin-left: clamp(1.5rem, -9.294rem + 46.05vw, 28.125rem);
-    margin-right: clamp(1.5rem, -9.294rem + 46.05vw, 28.125rem);
     margin-bottom: 2rem;
 }
 
