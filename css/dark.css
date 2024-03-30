@@ -1,0 +1,4 @@
+/* dark.css: light-on-dark */
+:root {
+    --background-color: hsl(235, 21%, 11%);
+}

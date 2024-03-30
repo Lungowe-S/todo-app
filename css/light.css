@@ -1,0 +1,5 @@
+/* light.css: dark-on-light */
+:root {
+    /* --lt-very-light-gray: hsl(0, 0%, 98%); */
+    --background-color: hsl(0, 0%, 98%);
+}
