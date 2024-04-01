@@ -5,19 +5,12 @@
   color-scheme: light dark;  
   --primary-bright-blue: hsl(220, 98%, 61%);
   --check-background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
- 
   --lt-very-light-grayish-blue: hsl(236, 33%, 92%);
   --lt-light-grayish-blue: hsl(233, 11%, 84%);
-  --lt-dark-grayish-blue: hsl(235, 9%, 61%);
-  --lt-very-dark-grayish-blue: hsl(235, 19%, 35%);
-  
   --dt-very-dark-desaturated-blue: hsl(235, 24%, 19%);
-  --dt-light-grayish-blue: hsl(234, 39%, 85%);
   --dt-light-grayish-blue-hover: hsl(236, 33%, 92%);
-  --dt-dark-grayish-blue:hsl(234, 11%, 52%);
   --dt-very-dark-grayish-blue: hsl(233, 14%, 35%);
   --dt-very-dark-grayish-blue2: hsl(237, 14%, 26%);
-  --white: hsl(0, 100%, 100%);
   --red-500: #ba2525;
   --font-family: "Josefin Sans", sans-serif;
   --font-weight-medium: 400;
@@ -30,7 +23,7 @@
  */
 body {
     background-color: var(--background-color);
-    color: var(--lt-very-dark-grayish-blue);
+    color: var(--color); 
     font-family: var(--font-family);
     font-size: var(--font-size);
     margin: 0;
@@ -52,7 +45,7 @@ body {
  * Header Styles
  */
 .header {
-    background-image: url("/images/bg-mobile-light.jpg");
+    background-image: var(--background-image);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -71,7 +64,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 15px;
     font-weight: var(--font-weight-bold);
-    color: var(--white);
+    color: var(--logo);
 }
 
 .theme__toggle {
@@ -86,8 +79,9 @@ body {
 /**
  * Todolist Styles
  */
+
 .todolist__new-task {
-   background-color: var(--white);
+   background-color: var(--form-background-color);
    border-radius: 5px;
 }
 
@@ -97,11 +91,18 @@ body {
     margin-left: 0.75rem;
 }
 
-.new-task__label,
-.task-label {
+.new-task__label {
     width: 1.25rem;
     height: 1.25rem;
     fill: var(--lt-very-light-grayish-blue);
+}
+
+.task-label {
+    opacity: 0;
+}
+
+.task input[type="checkbox"]:checked+label .task-label {
+    opacity: 1;
 }
 
 .new-task__input-group {
@@ -118,7 +119,7 @@ body {
 
 .new-task__input-group input::placeholder {
     font-size: var(--font-size);
-    color: var(--lt-very-dark-grayish-blue);
+    color: var(--placeholder-color);
 }
 
 .new-task__input-group input[type="text"] {
@@ -140,7 +141,7 @@ body {
 
 .todolist__tasks {
     padding-left: 0;
-    background-color: var(--white);
+    background-color: var(--form-background-color);
     /* border-radius: 5px; */
     margin-bottom: 0;
     border-top-left-radius: 5px;
@@ -214,10 +215,10 @@ input[type="checkbox"]:checked ~ .task__name {
      display: flex;
      align-items: center;
      padding: 1rem 1.25rem 1rem 1.25rem;
-     background-color: var(--white);
+     background-color: var(--form-background-color);
      border-bottom-left-radius: 5px;
      border-bottom-right-radius: 5px; 
-     color: var(--lt-dark-grayish-blue);
+     color: var(--activity-color);
      margin-bottom: 1.25rem;
  }
 
@@ -247,9 +248,10 @@ input[type="checkbox"]:checked ~ .task__name {
 
  .task__status-mobile {
      padding: 1rem 1.25rem 1rem 1.25rem;
-     background-color: var(--white);
+     background-color: var(--form-background-color);
      border-radius: 5px;
      margin-bottom: 2.5rem;
+     color: var(--activity-color);
  }
 
  .task__status-items.mobile {
@@ -289,7 +291,7 @@ input[type="checkbox"]:checked ~ .task__name {
 
 @media screen and (min-width: 50rem) {
     .header {
-        background-image: url("/images/bg-desktop-light.jpg");
+        background-image: var(--background-image-desktop);
         /* background-repeat: no-repeat;
         background-size: cover; */
     }

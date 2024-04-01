@@ -1,4 +1,11 @@
 /* dark.css: light-on-dark */
 :root {
     --background-color: hsl(235, 21%, 11%);
+    --background-image: url("/images/bg-mobile-dark.jpg");
+    --background-image-desktop: url("/images/bg-desktop-dark.jpg");
+    --placeholder-color: hsl(234, 11%, 52%);
+    --color: hsl(234, 39%, 85%);
+    --activity-color: hsl(265, 16%, 43%);
+    --form-background-color: hsl(235, 24%, 19%); 
+    --logo: hsl(0, 100%, 100%);
 }

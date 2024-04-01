@@ -2,4 +2,11 @@
 :root {
     /* --lt-very-light-gray: hsl(0, 0%, 98%); */
     --background-color: hsl(0, 0%, 98%);
+    --background-image: url("/images/bg-mobile-light.jpg");
+    --background-image-desktop: url("/images/bg-desktop-light.jpg");
+    --placeholder-color: hsl(235, 9%, 61%);
+    --color: hsl(235, 19%, 35%);
+    --activity-color: hsl(235, 9%, 61%);
+    --form-background-color: hsl(0, 100%, 100%); 
+    --logo: hsl(0, 100%, 100%);
 }
