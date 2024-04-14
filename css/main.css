@@ -27,6 +27,10 @@ body {
     font-family: var(--font-family);
     font-size: var(--font-size);
     margin: 0;
+    --duration: 0.5s;
+    --timing: ease;
+    transition: color var(--duration) var(--timing), background-color var(--duration) var(--timing);
+    position: relative;
 } 
 
 .main,
@@ -85,6 +89,11 @@ dark-mode-toggle {
  * Todolist Styles
  */
 
+.todolist {
+    position: absolute;
+    top: clamp(7.75rem, 6.382rem + 5.84vw, 11.125rem);
+}
+
 .todolist__new-task {
    background-color: var(--form-background-color);
    border-radius: 5px;
@@ -115,8 +124,8 @@ dark-mode-toggle {
     justify-content: start;
     align-content: center;
     padding: 0.875rem 0 0.875rem 1.25rem;
-    margin-top: 2.5rem;
-}
+    /* margin-top: 2.5rem; */
+} 
 
 .new-task__input-group input {
     background-color: var(--white);
@@ -286,6 +295,8 @@ input[type="checkbox"]:checked ~ .task__name {
 .attribution {
     margin-top: 4.5rem;
     margin-bottom: 2rem;
+    bottom: 0;
+    position: absolute;
 }
 
 .attribution-text {
