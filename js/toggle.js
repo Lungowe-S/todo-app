@@ -12,6 +12,8 @@ document.addEventListener('colorschemechange', (e) => {
 /* == Creating new tasks == */
 const todolist = document.querySelector('.todolist')
 const taskList = todolist.querySelector('.todolist__tasks')
+const taskItems = todolist.querySelectorAll('.tasks')
+
 
 function generateUniqueString(length) {
   return Math.random()
@@ -40,6 +42,19 @@ function makeTaskElement(taskname) {
   return taskElement
 }
 
+// Function to count tasks
+function countTasks() {
+  const taskCount = taskList.querySelectorAll('.task').length
+  return taskCount
+}
+
+// Function to update task count
+function updateTaskCount() {
+  const taskCountElement = document.querySelector('.task__count span')
+  const taskCount = countTasks()
+  taskCountElement.textContent = `${taskCount} item${taskCount !== 1 ? 's' : ''} left`
+}
+
 todolist.addEventListener('submit', event => {
   event.preventDefault(0)
   // Get the value of task
@@ -57,4 +72,10 @@ todolist.addEventListener('submit', event => {
   
   // Add task element to the DOM
   taskList.appendChild(taskElement)
+
+  //Update task count
+  updateTaskCount()
 })
+
+// Initialize task count
+updateTaskCount()
