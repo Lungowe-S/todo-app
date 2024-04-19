@@ -1,16 +1,15 @@
-/* On the page */
+/* == The Light & Dark Mode Toggle == */
 const darkModeToggle = document.querySelector('dark-mode-toggle');
-
-// Set the mode to dark
+  // Set the mode to dark
 darkModeToggle.mode = 'dark';
-// Set the mode to light
+  // Set the mode to light
 darkModeToggle.mode = 'light';
 
 document.addEventListener('colorschemechange', (e) => {
   console.log(`Color scheme changed to ${e.detail.colorScheme}.`);
 });
 
-/* Creating new tasks */
+/* == Creating new tasks == */
 const todolist = document.querySelector('.todolist')
 const taskList = todolist.querySelector('.todolist__tasks')
 
@@ -20,16 +19,7 @@ function generateUniqueString(length) {
     .substring(2, 2 + length)
 }
 
-todolist.addEventListener('submit', event => {
-  event.preventDefault(0)
-  /* Adding new tasks */
-
-  // Get the value of task
-  const newTaskField = todolist.querySelector('input')
-  const inputValue = newTaskField.value.trim()
-  console.log(inputValue)
-  // Clear the new task field
-  newTaskField.value = ''
+function makeTaskElement(taskname) {
   // Creating a task
   const uniqueID = generateUniqueString(10)
   const taskElement = document.createElement('li')
@@ -41,11 +31,30 @@ todolist.addEventListener('submit', event => {
               <path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6" />
             </svg>
           </label>
-          <span class="task__name">${inputValue}</span>
+          <span class="task__name">${taskname}</span>
           <button type="button" class="task__delete-button">
             <img src="images/icon-cross.svg" alt="image of an icon cross representing the delete button" >
           </button>
   `)
+
+  return taskElement
+}
+
+todolist.addEventListener('submit', event => {
+  event.preventDefault(0)
+  // Get the value of task
+  const newTaskField = todolist.querySelector('input')
+  const inputValue = newTaskField.value.trim()
+  console.log(inputValue)
+  // Clear the new task field
+  newTaskField.value = ''
+  // Bring focus to input field
+  newTaskField.focus()
+  // Preventing adding of empty task
+  if (!inputValue) return
+
+  const taskElement = makeTaskElement(inputValue)
+  
   // Add task element to the DOM
   taskList.appendChild(taskElement)
 })

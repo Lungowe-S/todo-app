@@ -34,14 +34,14 @@ body {
 } 
 
 .main,
-.header__wrapper,
-.attribution {
+.header__wrapper
+/* .attribution*/ { 
     margin-left: clamp(1.5rem, -9.294rem + 46.05vw, 28.125rem);
     margin-right: clamp(1.5rem, -9.294rem + 46.05vw, 28.125rem);
 }
 
-.todolist,
-.attribution {
+.todolist
+/* .attribution*/ {
     width: clamp(20.438rem, 15.041rem + 23.03vw, 33.75rem);
 }
 
@@ -187,10 +187,16 @@ dark-mode-toggle {
     border-radius: 100%;
     color: transparent;
     border: 1px solid var(--lt-very-light-grayish-blue);
+    cursor: pointer;
 }
 
 .task input[type="checkbox"]:checked+label {
     background: var(--check-background);
+    border: 1px solid var(--check-background);
+}
+
+.task input[type="checkbox"]:hover {
+    /* background: var(--check-background); */
     border: 1px solid var(--check-background);
 }
 
@@ -202,7 +208,7 @@ input[type="checkbox"]:checked ~ .task__name {
 .task input[type="checkbox"] {
     position: absolute;
     opacity: 0;
-    cursor: pointer;
+   
 }
 
 .task__delete-button {
@@ -292,12 +298,10 @@ input[type="checkbox"]:checked ~ .task__name {
     color: var(--lt-dark-grayish-blue);
 }
 
-.attribution {
-    margin-top: 4.5rem;
+ .attribution {
+    margin-top: 2rem;
     margin-bottom: 2rem;
-    bottom: 0;
-    position: absolute;
-}
+} 
 
 .attribution-text {
     text-align: center;
