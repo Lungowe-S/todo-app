@@ -83,10 +83,8 @@ todolist.addEventListener('submit', event => {
  updateTaskCount()
 
 taskList.addEventListener('click', event => {
-  //const task = taskList.querySelector('.task')
-  // const kids = todolist.children
-  // const taskListKids = taskList.children
-  const deleteBtn = taskList.querySelector('.task__delete-button')
-  const taskElement = deleteBtn.parentElement
+  if (!event.target.matches('.task__delete-button')) return
+  const taskElement = event.target.parentElement
   taskList.removeChild(taskElement)
+  updateTaskCount()
 })

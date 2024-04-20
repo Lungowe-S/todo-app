@@ -221,6 +221,10 @@ input[type="checkbox"]:checked ~ .task__name {
     height: 0.736875rem;
 }
 
+.task__delete-button img {
+    pointer-events: none;
+}
+
 .task:hover .task__delete-button,
 .task__delete-button:focus,
 .task__delete-button:active {
