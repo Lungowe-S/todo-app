@@ -12,7 +12,7 @@ document.addEventListener('colorschemechange', (e) => {
 /* == Creating new tasks == */
 const todolist = document.querySelector('.todolist')
 const taskList = todolist.querySelector('.todolist__tasks')
-const taskItems = todolist.querySelectorAll('.tasks')
+const taskItem = todolist.querySelector('.task')
 
 
 function generateUniqueString(length) {
@@ -20,6 +20,21 @@ function generateUniqueString(length) {
     .toString(36)
     .substring(2, 2 + length)
 }
+
+// Function to count tasks
+function countTasks() {
+  const taskCount = taskList.querySelectorAll('.task').length
+  return taskCount
+}
+
+// Function to update task count
+function updateTaskCount() {
+  const taskCountElement = document.querySelector('.task__count span')
+  let taskCount = countTasks()
+  console.log(taskCount)
+  taskCountElement.textContent = `${taskCount} item${taskCount !== 1 ? 's' : ''} left`
+}
+
 
 function makeTaskElement(taskname) {
   // Creating a task
@@ -42,19 +57,6 @@ function makeTaskElement(taskname) {
   return taskElement
 }
 
-// Function to count tasks
-function countTasks() {
-  const taskCount = taskList.querySelectorAll('.task').length
-  return taskCount
-}
-
-// Function to update task count
-function updateTaskCount() {
-  const taskCountElement = document.querySelector('.task__count span')
-  const taskCount = countTasks()
-  taskCountElement.textContent = `${taskCount} item${taskCount !== 1 ? 's' : ''} left`
-}
-
 todolist.addEventListener('submit', event => {
   event.preventDefault(0)
   // Get the value of task
@@ -74,8 +76,17 @@ todolist.addEventListener('submit', event => {
   taskList.appendChild(taskElement)
 
   //Update task count
-  updateTaskCount()
+   updateTaskCount()
 })
 
 // Initialize task count
-updateTaskCount()
+ updateTaskCount()
+
+taskList.addEventListener('click', event => {
+  //const task = taskList.querySelector('.task')
+  // const kids = todolist.children
+  // const taskListKids = taskList.children
+  const deleteBtn = taskList.querySelector('.task__delete-button')
+  const taskElement = deleteBtn.parentElement
+  taskList.removeChild(taskElement)
+})
